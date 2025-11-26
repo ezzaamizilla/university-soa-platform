@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://univ.com/teacher"
+           xmlns:tns="http://univ.com/teacher"
            elementFormDefault="qualified">
 
     <!-- Teacher Element -->
@@ -30,7 +31,7 @@
     <xs:element name="getTeacherResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="teacher" minOccurs="0"/>
+                <xs:element ref="tns:teacher" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -66,7 +67,7 @@
     <!-- Teacher List Type -->
     <xs:complexType name="teacherList">
         <xs:sequence>
-            <xs:element ref="teacher" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element ref="tns:teacher" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
