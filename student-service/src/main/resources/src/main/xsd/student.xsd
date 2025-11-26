@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://univ.com/student-ws"
+           xmlns:tns="http://univ.com/student-ws"
+           elementFormDefault="qualified">
+
+    <!-- Element pour obtenir un étudiant par ID -->
+    <xs:element name="GetStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Element pour obtenir tous les étudiants -->
+    <xs:element name="GetAllStudentsRequest">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetAllStudentsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="students" type="tns:student" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Element pour créer un étudiant -->
+    <xs:element name="CreateStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CreateStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Element pour mettre à jour un étudiant -->
+    <xs:element name="UpdateStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdateStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Element pour supprimer un étudiant -->
+    <xs:element name="DeleteStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DeleteStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Type Student -->
+    <xs:complexType name="student">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="phone" type="xs:string"/>
+            <xs:element name="filiere" type="xs:string"/>
+            <xs:element name="niveau" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

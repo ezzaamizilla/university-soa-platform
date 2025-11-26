@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://univ.com/course"
+           elementFormDefault="qualified">
+
+    <!-- Course Element -->
+    <xs:element name="course">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code" type="xs:string"/>
+                <xs:element name="titre" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
+                <xs:element name="enseignantId" type="xs:string"/>
+                <xs:element name="credits" type="xs:int"/>
+                <xs:element name="horaires" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Get Course Request -->
+    <xs:element name="getCourseRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Get Course Response -->
+    <xs:element name="getCourseResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="course" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Get All Courses Request -->
+    <xs:element name="getAllCoursesRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <!-- Get All Courses Response -->
+    <xs:element name="getAllCoursesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="courses" type="tns:courseList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Course List Type -->
+    <xs:complexType name="courseList">
+        <xs:sequence>
+            <xs:element ref="course" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

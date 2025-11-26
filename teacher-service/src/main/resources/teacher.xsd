@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://univ.com/teacher"
+           elementFormDefault="qualified">
+
+    <!-- Teacher Element -->
+    <xs:element name="teacher">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+                <xs:element name="nom" type="xs:string"/>
+                <xs:element name="prenom" type="xs:string"/>
+                <xs:element name="specialite" type="xs:string"/>
+                <xs:element name="disponible" type="xs:boolean"/>
+                <xs:element name="email" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Get Teacher Request -->
+    <xs:element name="getTeacherRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Get Teacher Response -->
+    <xs:element name="getTeacherResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="teacher" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Get All Teachers Request -->
+    <xs:element name="getAllTeachersRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <!-- Get All Teachers Response -->
+    <xs:element name="getAllTeachersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="teachers" type="tns:teacherList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Get Available Teachers Request -->
+    <xs:element name="getAvailableTeachersRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <!-- Get Available Teachers Response -->
+    <xs:element name="getAvailableTeachersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="teachers" type="tns:teacherList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Teacher List Type -->
+    <xs:complexType name="teacherList">
+        <xs:sequence>
+            <xs:element ref="teacher" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
